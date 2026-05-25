@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAISON IVOIRE — 銀座・白の彩度を編むメゾン</title>
+  <meta name="description" content="MAISON IVOIRE（メゾン・イヴォワール）は東京銀座に佇むヘア中心のトータル美容メゾン。アイボリーと大理石、鋼の三段階の白で、所作と素材だけで上質を成立させる。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── Color ─────────────────────────────────────── */
+      --bg:          #f4f0e8;  /* Ivoire */
+      --bg-alt:      #e8e4dc;  /* Marbre */
+      --bg-paper:    #ede8de;  /* Vélin */
+      --fg:          #3a3a3a;  /* Acier */
+      --fg-soft:     #6c6760;  /* Cendre */
+      --muted:       #9a948a;  /* Brume */
+      --line:        #c9c3b6;  /* Trait */
+      --line-soft:   #ddd6c8;  /* Trait clair */
+      --accent:      #c9a999;  /* Rose */
+      --accent-deep: #a98778;
+
+      /* ── Typography ────────────────────────────────── */
+      --font-serif-en: 'Cormorant Garamond', 'Times New Roman', serif;
+      --font-serif-jp: 'Yu Mincho', '游明朝', 'YuMincho', 'Noto Serif JP', serif;
+      --font-sans-jp:  'Yu Gothic Medium', '游ゴシック Medium', 'Noto Sans JP', sans-serif;
+
+      --ls-display: 0.12em;
+      --ls-body:    0.04em;
+      --lh-body:    1.9;
+      --lh-display: 1.3;
+
+      /* ── Rhythm ────────────────────────────────────── */
+      --rhythm-section: 8rem;
+      --rhythm-block:   4rem;
+      --rhythm-line:    1.5rem;
+      --gutter:         clamp(1.5rem, 4vw, 3rem);
+      --maxw-text:      62ch;
+      --maxw-page:      1180px;
+
+      /* ── Motion ────────────────────────────────────── */
+      --ease:       cubic-bezier(0.22, 0.61, 0.36, 1);
+      --dur-slow:   900ms;
+      --dur-base:   600ms;
+      --dur-quick:  300ms;
+
+      --hairline:   1px solid var(--line);
+      --hairline-soft: 1px solid var(--line-soft);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    [id] { scroll-margin-top: 5rem; }
+
+    :where(html, body) {
+      line-break: strict;
+      word-break: auto-phrase;
+      overflow-wrap: break-word;
+      hanging-punctuation: allow-end;
+    }
+    :where(h1, h2, h3, h4, [class*="title"], [class*="head"]) { text-wrap: balance; }
+    :where(p, li, dd) { text-wrap: pretty; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-serif-jp);
+      font-weight: 400;
+      font-size: 0.95rem;
+      line-height: var(--lh-body);
+      letter-spacing: var(--ls-body);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; transition: color var(--dur-quick) var(--ease); }
+    img { display: block; max-width: 100%; height: auto; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+    /* 数値・価格 */
+    .num, .price, time, .tel, .meta-num {
+      font-family: var(--font-serif-en);
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1, "lnum" 1;
+      font-weight: 400;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 1px;
+    }
+
+    /* ───────────────────────────── HEADER ───────────────────────────── */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: var(--hairline-soft);
+      padding: 1.1rem clamp(1.2rem, 4vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: var(--font-serif-en);
+      font-weight: 400;
+      font-size: 1.05rem;
+      letter-spacing: 0.32em;
+      color: var(--fg);
+      white-space: nowrap;
+    }
+    .brand-mark {
+      display: inline-block;
+      width: 0.65rem;
+      height: 0.65rem;
+      border: 1px solid var(--fg);
+      transform: rotate(45deg);
+    }
+    .brand-sub {
+      display: none;
+      font-family: var(--font-serif-jp);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+      margin-left: 0.6rem;
+      padding-left: 0.8rem;
+      border-left: var(--hairline);
+    }
+    @media (min-width: 720px) { .brand-sub { display: inline-block; } }
+
+    nav.top ul {
+      list-style: none;
+      display: none;
+      gap: clamp(1.4rem, 2.6vw, 2.4rem);
+      font-family: var(--font-serif-en);
+      font-size: 0.78rem;
+      letter-spacing: 0.26em;
+      font-weight: 400;
+      color: var(--fg-soft);
+      text-transform: uppercase;
+    }
+    @media (min-width: 880px) { nav.top ul { display: flex; } }
+    nav.top a {
+      position: relative;
+      padding: 0.3rem 0;
+    }
+    nav.top a::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -2px;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.45s var(--ease);
+    }
+    nav.top a:hover { color: var(--fg); }
+    nav.top a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    .header-reserve {
+      font-family: var(--font-serif-en);
+      font-size: 0.78rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--fg);
+      padding: 0.7rem 1.3rem;
+      border: 1px solid var(--fg);
+      white-space: nowrap;
+      transition: background var(--dur-base) var(--ease), color var(--dur-base) var(--ease);
+    }
+    .header-reserve:hover { background: var(--fg); color: var(--bg); }
+
+    /* ───────────────────────────── HERO ───────────────────────────── */
+    .hero {
+      max-width: var(--maxw-page);
+      margin: 0 auto;
+      padding: clamp(4rem, 9vw, 8rem) clamp(1.2rem, 4vw, 3rem) clamp(4rem, 8vw, 7rem);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 5vw, 4rem);
+      align-items: end;
+    }
+    @media (min-width: 880px) {
+      .hero {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: clamp(3rem, 6vw, 5.5rem);
+      }
+    }
+    .hero-copy { order: 2; }
+    .hero-figure { order: 1; }
+    @media (min-width: 880px) {
+      .hero-copy   { order: 1; }
+      .hero-figure { order: 2; }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-family: var(--font-serif-en);
+      font-size: 0.72rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--fg-soft);
+      margin-bottom: 1.8rem;
+      white-space: nowrap;
+    }
+    .hero-eyebrow::before {
+      content: "";
+      width: 2rem;
+      height: 1px;
+      background: var(--line);
+    }
+    .hero h1 {
+      font-family: var(--font-serif-en);
+      font-weight: 300;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1.04;
+      letter-spacing: 0.04em;
+      color: var(--fg);
+    }
+    .hero h1 .it {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--fg-soft);
+    }
+    .hero h1 .amp {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+      padding: 0 0.05em;
+    }
+    .hero-sub {
+      margin-top: 2rem;
+      font-family: var(--font-serif-jp);
+      font-weight: 500;
+      font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+      letter-spacing: 0.18em;
+      line-height: 2;
+      color: var(--fg);
+      max-width: 26em;
+    }
+    .hero-lead {
+      margin-top: 1.6rem;
+      max-width: 30em;
+      color: var(--fg-soft);
+      font-size: 0.92rem;
+      line-height: 2;
+    }
+    .hero-meta {
+      margin-top: 2.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem 3rem;
+      padding-top: 1.8rem;
+      border-top: var(--hairline-soft);
+    }
+    .hero-meta dt {
+      font-family: var(--font-serif-en);
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .hero-meta dd {
+      font-family: var(--font-serif-jp);
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      color: var(--fg);
+    }
+    .hero-meta dd .num { font-size: 1rem; letter-spacing: 0.04em; }
+
+    .hero-figure {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: var(--bg-alt);
+      border: var(--hairline-soft);
+    }
+    @media (max-width: 879px) {
+      .hero-figure { aspect-ratio: 3 / 4; }
+    }
+    .hero-figure img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: saturate(0.78) brightness(1.02);
+      transition: transform 1.6s var(--ease);
+    }
+    .hero-figure:hover img { transform: scale(1.03); }
+    .hero-figure-caption {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 0.9rem 1.1rem;
+      background: color-mix(in srgb, var(--bg) 86%, transparent);
+      backdrop-filter: blur(6px);
+      font-family: var(--font-serif-en);
+      font-size: 0.66rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--fg-soft);
+      border-left: 1px solid var(--accent);
+      white-space: nowrap;
+    }
+
+    /* ───────────────────────────── SECTION COMMON ───────────────────────────── */
+    section {
+      max-width: var(--maxw-page);
+      margin: 0 auto;
+      padding: var(--rhythm-section) clamp(1.2rem, 4vw, 3rem);
+    }
+    .section-band {
+      background: var(--bg-alt);
+      max-width: none;
+      padding-block: var(--rhythm-section);
+    }
+    .section-band > .inner {
+      max-width: var(--maxw-page);
+      margin: 0 auto;
+      padding-inline: clamp(1.2rem, 4vw, 3rem);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: clamp(3rem, 5vw, 4.5rem);
+      padding-bottom: 1.6rem;
+      border-bottom: var(--hairline);
+    }
+    @media (max-width: 768px) {
+      .section-head { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+    }
+    .section-head .left { display: flex; flex-direction: column; gap: 0.9rem; }
+    .section-no {
+      font-family: var(--font-serif-en);
+      font-size: 0.7rem;
+      letter-spacing: 0.34em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .section-head h2 {
+      font-family: var(--font-serif-en);
+      font-weight: 400;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      letter-spacing: var(--ls-display);
+      line-height: 1.1;
+      color: var(--fg);
+    }
+    .section-head h2 .it {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--fg-soft);
+    }
+    .section-head .right {
+      font-family: var(--font-serif-jp);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      color: var(--fg-soft);
+      writing-mode: horizontal-tb;
+      white-space: nowrap;
+    }
+
+    .section-intro {
+      max-width: 38em;
+      font-size: 0.95rem;
+      line-height: 2;
+      color: var(--fg-soft);
+      margin-bottom: clamp(3rem, 5vw, 4rem);
+    }
+
+    /* ───────────────────────────── PHILOSOPHY ───────────────────────────── */
+    .philos-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 4vw, 3.5rem);
+    }
+    @media (min-width: 720px) {
+      .philos-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1080px) {
+      .philos-list { grid-template-columns: repeat(4, 1fr); gap: clamp(2rem, 3vw, 2.8rem); }
+    }
+    .philos-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .philos-img {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: var(--bg-paper);
+      border: var(--hairline-soft);
+    }
+    .philos-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: saturate(0.7) brightness(1.04);
+      transition: transform 1.4s var(--ease);
+    }
+    .philos-card:hover .philos-img img { transform: scale(1.04); }
+    .philos-label {
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+      padding-bottom: 0.7rem;
+      border-bottom: var(--hairline-soft);
+    }
+    .philos-label .roman {
+      font-family: var(--font-serif-en);
+      font-size: 0.7rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .philos-label .ja {
+      font-family: var(--font-serif-jp);
+      font-weight: 500;
+      font-size: 1.05rem;
+      letter-spacing: 0.16em;
+      color: var(--fg);
+    }
+    .philos-card p {
+      font-size: 0.88rem;
+      line-height: 2;
+      color: var(--fg-soft);
+    }
+
+    /* ───────────────────────────── MENU ───────────────────────────── */
+    .menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .menu-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      gap: clamp(1rem, 3vw, 2.4rem);
+      align-items: baseline;
+      padding: 2.2rem 0;
+      border-bottom: var(--hairline-soft);
+    }
+    .menu-row:first-child { border-top: var(--hairline-soft); }
+    @media (max-width: 768px) {
+      .menu-row {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+          "no   name"
+          "desc desc"
+          "dur  price";
+        row-gap: 1rem;
+        padding: 2rem 0;
+      }
+      .menu-row .menu-no    { grid-area: no; }
+      .menu-row .menu-name  { grid-area: name; }
+      .menu-row .menu-desc  { grid-area: desc; }
+      .menu-row .menu-dur   { grid-area: dur; }
+      .menu-row .menu-price { grid-area: price; text-align: right; }
+    }
+    .menu-no {
+      font-family: var(--font-serif-en);
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      color: var(--muted);
+      min-width: 2.4rem;
+    }
+    .menu-name {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .menu-name .en {
+      font-family: var(--font-serif-en);
+      font-weight: 400;
+      font-size: 1.45rem;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+      color: var(--fg);
+    }
+    .menu-name .ja {
+      font-family: var(--font-serif-jp);
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 0.24em;
+      color: var(--fg-soft);
+    }
+    .menu-desc {
+      font-size: 0.86rem;
+      line-height: 1.95;
+      color: var(--fg-soft);
+      max-width: 36ch;
+    }
+    .menu-dur {
+      font-family: var(--font-serif-en);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      color: var(--fg-soft);
+      white-space: nowrap;
+    }
+    .menu-price {
+      font-family: var(--font-serif-en);
+      font-variant-numeric: tabular-nums;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--fg);
+      white-space: nowrap;
+    }
+    .menu-price .small {
+      font-family: var(--font-serif-jp);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-right: 0.3rem;
+    }
+    .menu-note {
+      margin-top: 2.4rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    /* ───────────────────────────── ATELIER ───────────────────────────── */
+    .atelier-stack {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(2rem, 4vw, 3.2rem);
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .atelier-figure {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-paper);
+      border: var(--hairline-soft);
+    }
+    .atelier-figure.wide  { aspect-ratio: 16 / 9; }
+    .atelier-figure.tall  { aspect-ratio: 3 / 4; max-width: 560px; margin-left: auto; }
+    .atelier-figure.square { aspect-ratio: 1 / 1; max-width: 520px; }
+    @media (max-width: 768px) {
+      .atelier-figure.tall, .atelier-figure.square { max-width: 100%; margin-inline: 0; }
+    }
+    .atelier-figure img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: saturate(0.78) brightness(1.02);
+      transition: transform 1.6s var(--ease);
+    }
+    .atelier-figure:hover img { transform: scale(1.03); }
+    .atelier-caption {
+      margin-top: 0.9rem;
+      font-family: var(--font-serif-en);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .atelier-caption .ja {
+      font-family: var(--font-serif-jp);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--fg-soft);
+      text-transform: none;
+      margin-left: 0.8rem;
+      padding-left: 0.9rem;
+      border-left: var(--hairline);
+    }
+
+    /* ───────────────────────────── ARTISANS ───────────────────────────── */
+    .artisans-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 4vw, 3.5rem);
+    }
+    @media (min-width: 760px) {
+      .artisans-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1040px) {
+      .artisans-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .artisan {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .artisan-img {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: var(--bg-paper);
+      border: var(--hairline-soft);
+    }
+    .artisan-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: saturate(0.7) brightness(1.04);
+      transition: transform 1.4s var(--ease);
+    }
+    .artisan:hover .artisan-img img { transform: scale(1.04); }
+    .artisan-name {
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+      padding-bottom: 0.7rem;
+      border-bottom: var(--hairline-soft);
+    }
+    .artisan-name .surname {
+      font-family: var(--font-serif-en);
+      font-weight: 400;
+      font-size: 1.6rem;
+      letter-spacing: 0.08em;
+      color: var(--fg);
+    }
+    .artisan-name .ja {
+      font-family: var(--font-serif-jp);
+      font-size: 0.78rem;
+      letter-spacing: 0.24em;
+      color: var(--fg-soft);
+    }
+    .artisan-meta {
+      font-family: var(--font-serif-en);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.72rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.2rem;
+    }
+    .artisan-meta .role { color: var(--fg-soft); }
+    .artisan p {
+      font-size: 0.86rem;
+      line-height: 2;
+      color: var(--fg-soft);
+    }
+
+    /* ───────────────────────────── JOURNAL ───────────────────────────── */
+    .journal-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .journal-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: clamp(1.4rem, 3vw, 2.6rem);
+      align-items: baseline;
+      padding: 2.4rem 0;
+      border-bottom: var(--hairline-soft);
+      transition: background var(--dur-base) var(--ease);
+    }
+    .journal-item:first-child { border-top: var(--hairline-soft); }
+    .journal-item:hover { background: var(--bg-paper); padding-inline: 1rem; margin-inline: -1rem; }
+    @media (max-width: 768px) {
+      .journal-item {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding: 2rem 0;
+      }
+      .journal-item:hover { padding-inline: 0; margin-inline: 0; background: transparent; }
+    }
+    .journal-date {
+      font-family: var(--font-serif-en);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      white-space: nowrap;
+      min-width: 6rem;
+    }
+    .journal-body { display: flex; flex-direction: column; gap: 0.6rem; }
+    .journal-body h3 {
+      font-family: var(--font-serif-en);
+      font-weight: 400;
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+      color: var(--fg);
+    }
+    .journal-body .ja {
+      font-family: var(--font-serif-jp);
+      font-weight: 500;
+      font-size: 0.84rem;
+      letter-spacing: 0.18em;
+      color: var(--fg-soft);
+    }
+    .journal-body p {
+      font-size: 0.86rem;
+      line-height: 1.95;
+      color: var(--fg-soft);
+      max-width: 56ch;
+      margin-top: 0.4rem;
+    }
+    .journal-tag {
+      font-family: var(--font-serif-en);
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ───────────────────────────── ACCESS / RESERVATION ───────────────────────────── */
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(3rem, 5vw, 4.5rem);
+    }
+    @media (min-width: 880px) {
+      .access-grid { grid-template-columns: 1fr 1fr; gap: clamp(3rem, 5vw, 5rem); }
+    }
+    .access-block { display: flex; flex-direction: column; gap: 1.4rem; }
+    .access-block h3 {
+      font-family: var(--font-serif-en);
+      font-weight: 400;
+      font-size: 1.7rem;
+      letter-spacing: 0.1em;
+      line-height: 1.2;
+      padding-bottom: 1rem;
+      border-bottom: var(--hairline);
+    }
+    .access-block h3 .ja {
+      display: block;
+      font-family: var(--font-serif-jp);
+      font-weight: 500;
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      color: var(--fg-soft);
+      margin-top: 0.6rem;
+    }
+    .access-dl {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      gap: 1.2rem 1.4rem;
+      font-size: 0.9rem;
+      line-height: 1.85;
+    }
+    @media (max-width: 480px) {
+      .access-dl { grid-template-columns: 1fr; gap: 0.3rem 0; }
+      .access-dl dd { padding-bottom: 1rem; border-bottom: var(--hairline-soft); margin-bottom: 0.3rem; }
+      .access-dl dd:last-child { border-bottom: 0; }
+    }
+    .access-dl dt {
+      font-family: var(--font-serif-en);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 0.35rem;
+    }
+    .access-dl dd { color: var(--fg); }
+    .access-dl dd .sub { display: block; color: var(--fg-soft); font-size: 0.82rem; margin-top: 0.4rem; }
+    .access-dl dd .num { font-size: 0.95rem; }
+
+    .reserve-card {
+      background: var(--bg-paper);
+      border: var(--hairline);
+      padding: clamp(2rem, 4vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+    .reserve-card .tel-line {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding-bottom: 1.4rem;
+      border-bottom: var(--hairline-soft);
+    }
+    .reserve-card .tel-line .label {
+      font-family: var(--font-serif-en);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .reserve-card .tel {
+      font-family: var(--font-serif-en);
+      font-variant-numeric: tabular-nums;
+      font-size: clamp(1.6rem, 2.6vw, 2rem);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--fg);
+      white-space: nowrap;
+    }
+    .reserve-card .tel-hours {
+      font-family: var(--font-serif-jp);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      color: var(--fg-soft);
+    }
+    .reserve-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      font-size: 0.86rem;
+      line-height: 1.9;
+      color: var(--fg);
+    }
+    .reserve-card ul li {
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .reserve-card ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.85em;
+      width: 0.5rem;
+      height: 1px;
+      background: var(--accent);
+    }
+    .reserve-card .mail {
+      font-family: var(--font-serif-en);
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      color: var(--fg);
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 0.2rem;
+      align-self: flex-start;
+      white-space: nowrap;
+      transition: color var(--dur-quick) var(--ease);
+    }
+    .reserve-card .mail:hover { color: var(--accent-deep); }
+
+    /* ───────────────────────────── QUOTE STRIPE ───────────────────────────── */
+    .quote {
+      background: var(--bg-paper);
+      border-top: var(--hairline-soft);
+      border-bottom: var(--hairline-soft);
+      padding: clamp(5rem, 9vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+    }
+    .quote blockquote {
+      max-width: 32em;
+      margin: 0 auto;
+      font-family: var(--font-serif-en);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+      color: var(--fg);
+      position: relative;
+    }
+    .quote blockquote::before {
+      content: "“";
+      position: absolute;
+      top: -1.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 3rem;
+      color: var(--accent);
+      font-style: normal;
+      line-height: 1;
+    }
+    .quote .ja {
+      margin-top: 1.8rem;
+      font-family: var(--font-serif-jp);
+      font-weight: 500;
+      font-size: 0.88rem;
+      letter-spacing: 0.3em;
+      color: var(--fg-soft);
+    }
+    .quote .attr {
+      margin-top: 1.4rem;
+      font-family: var(--font-serif-en);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ───────────────────────────── FOOTER ───────────────────────────── */
+    footer.site-footer {
+      background: var(--bg-alt);
+      padding: clamp(4rem, 6vw, 6rem) clamp(1.2rem, 4vw, 3rem) 2.5rem;
+      border-top: var(--hairline-soft);
+    }
+    .footer-inner {
+      max-width: var(--maxw-page);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 4vw, 3.5rem);
+    }
+    @media (min-width: 720px) {
+      .footer-inner { grid-template-columns: 1.4fr 1fr 1fr; }
+    }
+    .footer-brand .name {
+      font-family: var(--font-serif-en);
+      font-size: 1.4rem;
+      letter-spacing: 0.32em;
+      color: var(--fg);
+    }
+    .footer-brand p {
+      margin-top: 1.2rem;
+      font-size: 0.82rem;
+      line-height: 2;
+      color: var(--fg-soft);
+      max-width: 24em;
+    }
+    .footer-col h4 {
+      font-family: var(--font-serif-en);
+      font-weight: 400;
+      font-size: 0.74rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; font-size: 0.86rem; }
+    .footer-col a:hover { color: var(--accent-deep); border-bottom: 1px solid var(--accent); padding-bottom: 1px; }
+    .footer-base {
+      max-width: var(--maxw-page);
+      margin: clamp(3.5rem, 5vw, 5rem) auto 0;
+      padding-top: 2rem;
+      border-top: var(--hairline-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      align-items: baseline;
+      justify-content: space-between;
+      font-family: var(--font-serif-en);
+      font-size: 0.7rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ───────────────────────────── REVEAL ───────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+    }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+      .hero-figure img, .philos-card:hover .philos-img img,
+      .atelier-figure:hover img, .artisan:hover .artisan-img img { transform: none; }
+    }
+
+    /* ───────────────────────────── MOBILE TYPOGRAPHY ───────────────────────────── */
+    /* Cormorant 300 はモバイルで線痩せするため 400 に昇格 */
+    @media (max-width: 768px) {
+      .hero h1,
+      .quote blockquote {
+        font-weight: 400;
+      }
+      .hero h1 .it,
+      .quote blockquote {
+        font-weight: 400;
+      }
+      body { font-size: 0.92rem; }
+      .menu-name .en { font-size: 1.25rem; }
+      .artisan-name .surname { font-size: 1.4rem; }
+      .journal-body h3 { font-size: 1.3rem; }
+      .access-block h3 { font-size: 1.4rem; }
+      .hero { padding-top: clamp(3rem, 8vw, 5rem); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ───────── HEADER ───────── -->
+  <header class="site-header">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true"></span>
+      MAISON&nbsp;IVOIRE
+      <span class="brand-sub">銀座メゾン</span>
+    </a>
+    <nav class="top" aria-label="グローバル">
+      <ul>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#atelier">Atelier</a></li>
+        <li><a href="#artisans">Artisans</a></li>
+        <li><a href="#journal">Journal</a></li>
+        <li><a href="#access">Access</a></li>
+      </ul>
+    </nav>
+    <a class="header-reserve" href="#access">Reservation</a>
+  </header>
+
+  <!-- ───────── HERO ───────── -->
+  <section class="hero" id="top" aria-label="ヒーロー">
+    <div class="hero-copy">
+      <span class="hero-eyebrow">Ginza, Tokyo &nbsp;/&nbsp; Est. MMVII</span>
+      <h1>
+        White,<br>
+        in <span class="it">three</span> <span class="amp">&amp;</span><br>
+        a half tones.
+      </h1>
+      <p class="hero-sub">
+        白の階調と、銀の道具と、自然光のあいだに。<br>
+        髪のための、静かな銀座メゾン。
+      </p>
+      <p class="hero-lead">
+        MAISON IVOIRE は、東京銀座に佇む小さなトータル美容メゾン。
+        ヘアを中心に、頭皮・所作・時間そのものを設える。装いではなく、纏う前の素になる場所として。
+      </p>
+      <dl class="hero-meta">
+        <div>
+          <dt>House</dt>
+          <dd>Ginza Hommura</dd>
+        </div>
+        <div>
+          <dt>Since</dt>
+          <dd><span class="num">2007</span></dd>
+        </div>
+        <div>
+          <dt>Chairs</dt>
+          <dd><span class="num">6</span>&nbsp;席</dd>
+        </div>
+        <div>
+          <dt>Reservation</dt>
+          <dd>完全予約制</dd>
+        </div>
+      </dl>
+    </div>
+    <figure class="hero-figure">
+      <img
+        src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=1100&q=80"
+        alt="自然光の差し込む白い窓辺と、淡いアイボリーのドレープ"
+        loading="eager"
+      />
+      <figcaption class="hero-figure-caption">North Light · 北側採光</figcaption>
+    </figure>
+  </section>
+
+  <!-- ───────── PHILOSOPHY ───────── -->
+  <section id="philosophy" aria-label="メゾンの哲学">
+    <div class="section-head">
+      <div class="left">
+        <span class="section-no">No. 01 — Philosophy</span>
+        <h2>The four <span class="it">elements</span><br>of a maison.</h2>
+      </div>
+      <div class="right">メゾンを支える、四つの素地。</div>
+    </div>
+
+    <p class="section-intro reveal">
+      メゾンは、特別な技術ではなく、当たり前のものの選び方で成り立っている。
+      水・光・道具・所作。四つの素地を整えるところからしか、白の階調は生まれない。
+    </p>
+
+    <div class="philos-list">
+      <article class="philos-card reveal">
+        <div class="philos-img">
+          <img
+            src="https://images.unsplash.com/photo-1502740479091-635887520276?auto=format&fit=crop&w=800&q=80"
+            alt="白い陶器の器に注がれる、澄んだ水の表面"
+            loading="lazy"
+          />
+        </div>
+        <div class="philos-label">
+          <span class="roman">I &nbsp;Eau</span>
+          <span class="ja">水</span>
+        </div>
+        <p>軟水循環濾過と適温の二槽式シャンプー台。髪が水を含む音まで設計の一部として整える。</p>
+      </article>
+
+      <article class="philos-card reveal">
+        <div class="philos-img">
+          <img
+            src="https://images.unsplash.com/photo-1518693298222-2c0c5f7cd4eb?auto=format&fit=crop&w=800&q=80"
+            alt="白いレースカーテン越しに差し込む、午後の柔らかな自然光"
+            loading="lazy"
+          />
+        </div>
+        <div class="philos-label">
+          <span class="roman">II &nbsp;Lumière</span>
+          <span class="ja">光</span>
+        </div>
+        <p>北側採光と演色性 Ra 96 の灯。色の見極めを、銀座の窓ごしの自然光に委ねる時間。</p>
+      </article>
+
+      <article class="philos-card reveal">
+        <div class="philos-img">
+          <img
+            src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=800&q=80"
+            alt="白い布の上に整然と並べられた、銀色のはさみと櫛"
+            loading="lazy"
+          />
+        </div>
+        <div class="philos-label">
+          <span class="roman">III &nbsp;Outils</span>
+          <span class="ja">道具</span>
+        </div>
+        <p>関の鋼を打ち直した専用鋏、檜の梳櫛、晒木綿の白布。一人一卓のための、固有の道具立て。</p>
+      </article>
+
+      <article class="philos-card reveal">
+        <div class="philos-img">
+          <img
+            src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=80"
+            alt="施術中、白衣の袖から覗く整えられた手元の所作"
+            loading="lazy"
+          />
+        </div>
+        <div class="philos-label">
+          <span class="roman">IV &nbsp;Geste</span>
+          <span class="ja">所作</span>
+        </div>
+        <p>触れ方、歩幅、声の高さ。技術と同じ重さで、銀座メゾンの所作を稽古する。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────── MENU ───────── -->
+  <div class="section-band">
+    <div class="inner">
+      <section id="menu" aria-label="メニュー" style="padding:0">
+        <div class="section-head">
+          <div class="left">
+            <span class="section-no">No. 02 — Menu</span>
+            <h2>Hair, scalp <span class="it">&amp;</span><br>the maison ritual.</h2>
+          </div>
+          <div class="right">髪のための、六つの仕度。</div>
+        </div>
+
+        <p class="section-intro reveal">
+          すべてのメニューは、所要時間と工程を明示しています。価格は税込・初回再訪同額。
+          指名料は別途、追加施術はカウンセリングののち、希望時のみご案内いたします。
+        </p>
+
+        <div class="menu-list">
+
+          <article class="menu-row reveal">
+            <span class="menu-no">01</span>
+            <div class="menu-name">
+              <span class="en">Coupe Ivoire</span>
+              <span class="ja">象牙のカット</span>
+            </div>
+            <p class="menu-desc">骨格と髪質の診立て、北側採光下での乾燥仕上げまで。基準となる一回。</p>
+            <span class="menu-dur">90 min</span>
+            <span class="menu-price"><span class="small">¥</span>13,200</span>
+          </article>
+
+          <article class="menu-row reveal">
+            <span class="menu-no">02</span>
+            <div class="menu-name">
+              <span class="en">Couleur Velin</span>
+              <span class="ja">羊皮紙のカラー</span>
+            </div>
+            <p class="menu-desc">低アルカリ調剤＋トリートメント同時施術。白髪の境目を象牙色の階調に編み直す。</p>
+            <span class="menu-dur">150 min</span>
+            <span class="menu-price"><span class="small">¥</span>22,000</span>
+          </article>
+
+          <article class="menu-row reveal">
+            <span class="menu-no">03</span>
+            <div class="menu-name">
+              <span class="en">Soin Marbre</span>
+              <span class="ja">大理石のトリートメント</span>
+            </div>
+            <p class="menu-desc">髪内部の水分階調を整える三相処理。仕上がりは艶ではなく、白の透明感。</p>
+            <span class="menu-dur">60 min</span>
+            <span class="menu-price"><span class="small">¥</span>9,900</span>
+          </article>
+
+          <article class="menu-row reveal">
+            <span class="menu-no">04</span>
+            <div class="menu-name">
+              <span class="en">Spa du Crâne</span>
+              <span class="ja">頭皮のスパ</span>
+            </div>
+            <p class="menu-desc">軟水・檜油・指の腹のみで行う、四十分の頭皮ほどき。眠りの深さを翌朝まで持ち越す。</p>
+            <span class="menu-dur">75 min</span>
+            <span class="menu-price"><span class="small">¥</span>14,300</span>
+          </article>
+
+          <article class="menu-row reveal">
+            <span class="menu-no">05</span>
+            <div class="menu-name">
+              <span class="en">Rituel d'Acier</span>
+              <span class="ja">鋼のメゾン施術</span>
+            </div>
+            <p class="menu-desc">カット＋カラー＋スパを一連の儀式として三時間で編む、メゾン署名の仕度。</p>
+            <span class="menu-dur">180 min</span>
+            <span class="menu-price"><span class="small">¥</span>38,500</span>
+          </article>
+
+          <article class="menu-row reveal">
+            <span class="menu-no">06</span>
+            <div class="menu-name">
+              <span class="en">Première Visite</span>
+              <span class="ja">初回の対話</span>
+            </div>
+            <p class="menu-desc">髪と暮らしを聴く四十五分。施術は次回より。初回はメゾンに白い時間を預けるためだけに。</p>
+            <span class="menu-dur">45 min</span>
+            <span class="menu-price"><span class="small">¥</span>0</span>
+          </article>
+
+        </div>
+
+        <p class="menu-note reveal">
+          ※ 表示はすべて税込／単独施術料金です。指名料 ¥1,650、ロング料金は肩下より別途。
+          メニューは予約時のカウンセリングで微調整いたします。
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <!-- ───────── QUOTE ───────── -->
+  <div class="quote">
+    <blockquote class="reveal">
+      The maison does not promise change.<br>
+      It returns you to your own quiet.
+    </blockquote>
+    <p class="ja reveal">メゾンは変化を約束しない。あなた自身の静けさへ、戻すだけ。</p>
+    <p class="attr reveal">— Maître Y., founding stylist</p>
+  </div>
+
+  <!-- ───────── ATELIER ───────── -->
+  <section id="atelier" aria-label="アトリエ（店内）">
+    <div class="section-head">
+      <div class="left">
+        <span class="section-no">No. 03 — Atelier</span>
+        <h2>Six chairs, <span class="it">one</span><br>quiet hour.</h2>
+      </div>
+      <div class="right">銀座の窓辺、六席ぶんの間。</div>
+    </div>
+
+    <p class="section-intro reveal">
+      銀座本店は、二階建ての小さなメゾン。六席のみ。喧騒から一段降りた天井高 3.2m の中で、
+      椅子・床・道具・窓のすべてが、白の階調のためだけに選ばれている。
+    </p>
+
+    <div class="atelier-stack">
+      <figure class="atelier-figure wide reveal">
+        <img
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80"
+          alt="白い大理石のカウンターと、北側採光の入る静かな店内"
+          loading="lazy"
+        />
+        <figcaption class="atelier-caption">
+          Salle Principale
+          <span class="ja">主室・北側採光</span>
+        </figcaption>
+      </figure>
+
+      <figure class="atelier-figure tall reveal">
+        <img
+          src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80"
+          alt="白い陶器に整然と並ぶ、銀色のはさみと櫛のマクロ"
+          loading="lazy"
+        />
+        <figcaption class="atelier-caption">
+          Outils d'Argent
+          <span class="ja">銀の道具立て</span>
+        </figcaption>
+      </figure>
+
+      <figure class="atelier-figure wide reveal">
+        <img
+          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80"
+          alt="床に敷かれた白い晒木綿と、淡い影が落ちる木の床"
+          loading="lazy"
+        />
+        <figcaption class="atelier-caption">
+          Plancher Vélin
+          <span class="ja">羊皮の床・檜と晒</span>
+        </figcaption>
+      </figure>
+
+      <figure class="atelier-figure square reveal">
+        <img
+          src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=80"
+          alt="白い窓辺に立てかけられた、銀のはさみと折りたたまれた白布"
+          loading="lazy"
+        />
+        <figcaption class="atelier-caption">
+          Fenêtre Nord
+          <span class="ja">北窓</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ───────── ARTISANS ───────── -->
+  <div class="section-band">
+    <div class="inner">
+      <section id="artisans" aria-label="職人" style="padding:0">
+        <div class="section-head">
+          <div class="left">
+            <span class="section-no">No. 04 — Artisans</span>
+            <h2>Hands, <span class="it">not</span><br>faces.</h2>
+          </div>
+          <div class="right">姓のみ。顔の代わりに、手と道具を。</div>
+        </div>
+
+        <p class="section-intro reveal">
+          メゾンの職人は、姓のみで名乗ります。個人を売るのではなく、館の格を保つために。
+          ご指名は可能です。お電話で姓と入店年をお伝えください。
+        </p>
+
+        <div class="artisans-grid">
+
+          <article class="artisan reveal">
+            <div class="artisan-img">
+              <img
+                src="https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=900&q=80"
+                alt="施術中、整えられた女性スタイリストの後ろ姿と白衣の肩のライン"
+                loading="lazy"
+              />
+            </div>
+            <div class="artisan-name">
+              <span class="surname">Yamashiro</span>
+              <span class="ja">山城</span>
+            </div>
+            <div class="artisan-meta">
+              <span class="role">Maître / 主宰</span>
+              <span>Since <span class="num">2007</span></span>
+              <span>Coupe &middot; Couleur</span>
+            </div>
+            <p>銀座の老舗サロンで十一年の修練ののち、二〇〇七年に MAISON IVOIRE を構える。白髪の階調設計を専らとする。</p>
+          </article>
+
+          <article class="artisan reveal">
+            <div class="artisan-img">
+              <img
+                src="https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=900&q=80"
+                alt="銀色のはさみを握る、整えられた女性の手のマクロ"
+                loading="lazy"
+              />
+            </div>
+            <div class="artisan-name">
+              <span class="surname">Asakura</span>
+              <span class="ja">朝倉</span>
+            </div>
+            <div class="artisan-meta">
+              <span class="role">Première Coiffeuse</span>
+              <span>Since <span class="num">2014</span></span>
+              <span>Coupe &middot; Spa</span>
+            </div>
+            <p>京都の美容学校を経て、関西の老舗で六年。骨格に沿う乾かし方の指導者として、毎月の若手稽古を担う。</p>
+          </article>
+
+          <article class="artisan reveal">
+            <div class="artisan-img">
+              <img
+                src="https://images.unsplash.com/photo-1522337094846-8a818192de1f?auto=format&fit=crop&w=900&q=80"
+                alt="施術中の頭皮スパ、指の腹だけが触れる手元のマクロ"
+                loading="lazy"
+              />
+            </div>
+            <div class="artisan-name">
+              <span class="surname">Higuchi</span>
+              <span class="ja">樋口</span>
+            </div>
+            <div class="artisan-meta">
+              <span class="role">Coloriste / 染色師</span>
+              <span>Since <span class="num">2018</span></span>
+              <span>Couleur &middot; Soin</span>
+            </div>
+            <p>低アルカリ調剤と灰系トーンの設計を専門とする。北側採光下での色見立てを年二回、欧州の研修で更新する。</p>
+          </article>
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ───────── JOURNAL ───────── -->
+  <section id="journal" aria-label="メゾン便り">
+    <div class="section-head">
+      <div class="left">
+        <span class="section-no">No. 05 — Journal</span>
+        <h2>Letters from <span class="it">the maison</span>.</h2>
+      </div>
+      <div class="right">髪と季節と、道具のはなし。</div>
+    </div>
+
+    <div class="journal-list">
+
+      <article class="journal-item reveal">
+        <time class="journal-date" datetime="2026-05-12">12 / 05 / 2026</time>
+        <div class="journal-body">
+          <h3>On the colour of ivory in May.</h3>
+          <p class="ja">五月の象牙色について。</p>
+          <p>梅雨入り前の北側採光は、年で最も澄む。今月のカラー調剤は、灰を一段だけ抜き、象牙を半段だけ深める設計で。</p>
+        </div>
+        <span class="journal-tag">Couleur</span>
+      </article>
+
+      <article class="journal-item reveal">
+        <time class="journal-date" datetime="2026-04-03">03 / 04 / 2026</time>
+        <div class="journal-body">
+          <h3>The seki blade, re-tempered.</h3>
+          <p class="ja">関の鋼を、打ち直す。</p>
+          <p>当メゾンの鋏は、年一度、関の刀匠のもとで研ぎ直しと打ち直しを行う。職人の手の重みを、刃の角度に翻訳する作業。</p>
+        </div>
+        <span class="journal-tag">Outils</span>
+      </article>
+
+      <article class="journal-item reveal">
+        <time class="journal-date" datetime="2026-02-21">21 / 02 / 2026</time>
+        <div class="journal-body">
+          <h3>Water, before light.</h3>
+          <p class="ja">光より、まず水を。</p>
+          <p>銀座本店の軟水器を更新。シャンプー時の音がひとつ低くなり、髪の含水が均される。光より先に、水のことを。</p>
+        </div>
+        <span class="journal-tag">Eau</span>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ───────── ACCESS / RESERVATION ───────── -->
+  <div class="section-band">
+    <div class="inner">
+      <section id="access" aria-label="アクセス・ご予約" style="padding:0">
+        <div class="section-head">
+          <div class="left">
+            <span class="section-no">No. 06 — Access</span>
+            <h2>Ginza Hommura, <span class="it">quietly.</span></h2>
+          </div>
+          <div class="right">銀座本店・完全予約制</div>
+        </div>
+
+        <div class="access-grid">
+
+          <div class="access-block reveal">
+            <h3>
+              Maison
+              <span class="ja">銀座本店</span>
+            </h3>
+            <dl class="access-dl">
+              <dt>Address</dt>
+              <dd>
+                東京都中央区銀座 <span class="num">4-12-7</span><br>
+                銀座本邨ビル <span class="num">2F</span>
+                <span class="sub">〒<span class="num">104-0061</span></span>
+              </dd>
+              <dt>Access</dt>
+              <dd>
+                東京メトロ銀座駅 A<span class="num">12</span> 出口より<br>徒歩 <span class="num">4</span> 分<br>
+                <span class="sub">都営浅草線東銀座駅 A<span class="num">7</span> 出口より徒歩 <span class="num">3</span> 分</span>
+              </dd>
+              <dt>Hours</dt>
+              <dd>
+                <span class="num">10:00 — 20:00</span>
+                <span class="sub">最終受付は施術内容により異なります</span>
+              </dd>
+              <dt>Closed</dt>
+              <dd>
+                火曜日・第三月曜日
+                <span class="sub">年末年始・夏季休館は別途お知らせ</span>
+              </dd>
+            </dl>
+          </div>
+
+          <div class="reserve-card reveal">
+            <div class="tel-line">
+              <span class="label">Reservation by Telephone</span>
+              <a class="tel" href="tel:+81-3-5544-0000">+81&nbsp;3&nbsp;5544&nbsp;0000</a>
+              <span class="tel-hours">受付 <span class="num" style="font-family:inherit">10:00 – 19:30</span>　完全予約制</span>
+            </div>
+
+            <ul>
+              <li>初回ご来訪の方は、まず四十五分の対話のお時間を頂戴いたします。</li>
+              <li>ご指名・ご希望の施術・所要時間の上限を、お電話にて伺います。</li>
+              <li>当日のキャンセルは、メゾンの調整のため承りかねます。</li>
+            </ul>
+
+            <a class="mail" href="mailto:reservation@maison-ivoire.tokyo">reservation@maison-ivoire.tokyo</a>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ───────── FOOTER ───────── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="name">MAISON&nbsp;IVOIRE</p>
+        <p>白の彩度の支配だけで上質を成立させる、銀座のヘア中心トータル美容メゾン。二〇〇七年創業。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#atelier">Atelier</a></li>
+          <li><a href="#artisans">Artisans</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#journal">Journal</a></li>
+          <li><a href="#access">Access</a></li>
+          <li><a href="tel:+81-3-5544-0000">+81&nbsp;3&nbsp;5544&nbsp;0000</a></li>
+          <li><a href="mailto:reservation@maison-ivoire.tokyo">reservation@maison-ivoire.tokyo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© <span class="num">2026</span> &nbsp;Maison Ivoire, Ginza</span>
+      <span>Design study by torifo · beauty-salon / ivoire</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var targets = document.querySelectorAll('.reveal');
+      if (reduced || !('IntersectionObserver' in window)) {
+        targets.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+      targets.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
